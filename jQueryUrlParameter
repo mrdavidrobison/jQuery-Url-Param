@@ -1,0 +1,31 @@
+var urlParams = new URLSearchParams(window.location.search);
+var tags = document.getElementById("tags").value;
+
+var qMethod = null;
+if (urlParams.has('method')) {
+    qMethod = urlParams.get('method');
+} else {
+    qMethod = 'website';
+}
+
+switch (qMethod) {
+    default:     
+    case 'website': {
+        tags = tags + ',Promo_YsidroFreeWash_Ref_Website';
+        break;
+    }
+    case 'geo': {
+        tags = tags + ',Promo_YsidroFreeWash_Ref_Geo';
+        break;
+    }
+    case 'social-ad': {
+        tags = tags + ',Promo_YsidroFreeWash_Ref_SocialAd';
+        break;
+    }
+    case 'social-post': {
+        tags = tags + ',Promo_YsidroFreeWash_Ref_SocialPost';
+        break;
+    }
+}
+
+document.getElementById("tags").value = tags;
